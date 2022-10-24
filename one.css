@@ -17,3 +17,59 @@
 #test{
    color: rgb(175, 15, 15); 
 }
+/*селектор по тегу*/
+div{
+    background: green;
+}
+/*селектор по классу*/
+.cat{
+    border: 1px solid rgb(45, 11, 83);
+}
+.dog{
+    font-size: 20px;
+}
+/*селектор по атрибуту*/
+input[placeholder] { /*input не обязателен но так точнее*/
+    background-color: black;
+    color: antiquewhite;
+}
+input[placeholder="Hello"]{
+    color: blue;
+}
+/*селектор по псевдоклассу*/
+div:hover{ 
+    padding: 30px;
+}/*hover - псевдокласс появляющийся у  элементов при наведении*/
+/*селектор по псевдоэлементам*/
+::first-letter{
+    color: red;
+    font-size: 32px;
+}
+/*универсальный селектор*/
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*составные селекторы*/
+/*разделители селекторов
+',' - перечисление
+' '- 
+*/
+div,.dog,#test{}
+
+/*для всех тегов div и тегов с атрибутом placeholder, которые располеженны  внутри тега с идентификатором test*/
+#test div, [placeholder]{}
+
+/* для всех a, которые лежат внутри тегов p, которые являются непосредственными потомкаим тегов div */
+div > p a {}
+/*для всех тегов a расположенны сразу после тега div*/
+div+a {}
+/*для всех тегов а расположенных после тега div, внутри одного родительского тега( на одном уровне вложенности)*/
+div~a
+#test>p + .cat > a:hover{}
+/*специфичность*/
+#test{
+    text-align: center;
+} 
+div{
+    text-align: right;
+}
